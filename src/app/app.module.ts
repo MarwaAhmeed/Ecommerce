@@ -12,6 +12,10 @@ import { PipePricePipe } from './pipe-price.pipe';
 import { PipeCountPipe } from './pipe-count.pipe';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { ProductDetalisComponent } from './product-detalis/product-detalis.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -22,13 +26,17 @@ import { RegisterComponent } from './register/register.component';
     PipePricePipe,
     PipeCountPipe,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    NotFoundComponent,
+    ProductDetalisComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

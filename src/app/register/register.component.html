@@ -58,13 +58,16 @@
     <label for="password2" class="form-label">Confirm Password</label>
     <input type="password" class="form-control" id="password2" formControlName="confirmPassword">
     <div class="text-danger" *ngIf="
-      RegisterForm.controls['confirmPassword'].touched && !RegisterForm.controls['confirmPassword'].valid
+      RegisterForm.controls['confirmPassword'].touched && RegisterForm.controls['confirmPassword'].invalid
     ">
       <small *ngIf="formControls['confirmPassword'].errors?.['required']">
         this field is required
       </small>
       <small *ngIf="formControls['confirmPassword'].errors?.['checkIfMatchingPasswords']">
         Must Be Match
+      </small>
+      <small>
+        Hallo
       </small>
     </div>
   </div>
