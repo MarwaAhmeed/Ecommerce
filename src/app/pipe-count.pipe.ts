@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class PipeCountPipe implements PipeTransform {
 
   transform(value: string, ...args: unknown[]): unknown {
-    console.log(value)
+    console.log(typeof(value))
     if(value){
       return "inStock";
     }

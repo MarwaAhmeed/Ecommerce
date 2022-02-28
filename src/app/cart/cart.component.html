@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Image</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let oneProd of product">
+      <td scope="col"><img [src]="oneProd.image" style="width: 5%;"></td>
+      <td>{{oneProd.title}}</td>
+      <td>{{oneProd.price|pipePrice}}</td>
+      <td></td>
+      <td> <a (click)="removeItem(oneProd.id)">Remove</a></td>
+    </tr>
+  </tbody>
+</table>

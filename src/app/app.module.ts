@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'
 import { ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpClientModule } from'@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +18,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ProductDetalisComponent } from './product-detalis/product-detalis.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
+import { CartComponent } from './cart/cart.component';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -28,15 +32,19 @@ import {MatCardModule} from '@angular/material/card';
     LoginComponent,
     RegisterComponent,
     NotFoundComponent,
-    ProductDetalisComponent
+    ProductDetalisComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

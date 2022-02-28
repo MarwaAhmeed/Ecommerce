@@ -6,7 +6,7 @@
         <h6 class="card-subtitle  text-muted">{{Product.category}}</h6>
         <p class="card-text">{{Product.price |pipePrice}}</p>
         <p  class="card-text" [ngStyle]="{'color': Product.rating.count != 0 ? 'green' : 'red' }">{{Product.rating.count|pipeCount}}</p>
-        <a href="#" class="btn btn-primary mt-auto">ADD TO CART</a>
+        <a href="#" class="btn btn-primary mt-auto" (click)="addToCart()">ADD TO CART</a>
       </div>
 </div>
 

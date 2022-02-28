@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import Products from '../../assets/Product.json';
+import {ServiceService} from '../services/service.service'
 
 @Component({
   selector: 'app-product-detalis',
@@ -9,13 +9,19 @@ import Products from '../../assets/Product.json';
 })
 export class ProductDetalisComponent implements OnInit {
   productDetalis:any;
-  constructor(private activatedRoute: ActivatedRoute) {
-    const activeID = this.activatedRoute.snapshot.params['id'];
-  this.productDetalis=Products.find(product =>product.id == activeID);
-    console.log(this.productDetalis);
+   activeID:number=0;
+  constructor(private activatedRoute: ActivatedRoute,private service: ServiceService) {
+    this.activeID = this.activatedRoute.snapshot.params['id'];
+    console.log(this.activeID);
   }
+
 
   ngOnInit(): void {
+    this.service.getProductDetails(this.activeID).subscribe(
+      (res)=>this.productDetalis=res
+    )
   }
-
+ addToCart(){
+   
+ }
 }
