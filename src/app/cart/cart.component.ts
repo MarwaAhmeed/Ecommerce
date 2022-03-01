@@ -10,6 +10,7 @@ export class CartComponent implements OnInit {
 
   product :any;
   counter=0;
+  Quan=1;
   constructor(private CounterService: ServiceService) {
   }
 
@@ -20,10 +21,15 @@ export class CartComponent implements OnInit {
     this.CounterService.getCounterValue().subscribe(
       (val) => (this.counter = val)
     );
-    console.log(this.product)
   }
   removeItem(id:number){
     this.product=this.product.filter( (pro:any) =>( pro.id !=id))
     this.CounterService.setCounterValue(--this.counter);
+  }
+  increase(){
+    ++this.Quan;
+  }
+  decrease(){
+    --this.Quan;
   }
 }

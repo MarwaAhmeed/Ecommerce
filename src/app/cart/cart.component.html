@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table w-50 m-5">
   <thead>
     <tr>
       <th scope="col">Image</th>
@@ -13,8 +13,8 @@
       <td scope="col"><img [src]="oneProd.image" style="width: 5%;"></td>
       <td>{{oneProd.title}}</td>
       <td>{{oneProd.price|pipePrice}}</td>
-      <td></td>
-      <td> <a (click)="removeItem(oneProd.id)">Remove</a></td>
+      <td><a (click)="increase()">+</a>{{Quan}}<a (click)="decrease()">-</a></td>
+      <td><a href="#" (click)="removeItem(oneProd.id)">Remove</a></td>
     </tr>
   </tbody>
 </table>

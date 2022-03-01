@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'
 import { ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { HttpClientModule } from'@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from'@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,7 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import { CartComponent } from './cart/cart.component';
 import {MatTableModule} from '@angular/material/table';
-
+import { LoaderComponent } from './loader/loader.component';
+import { LoderInterceptorInterceptor } from './interceptors/loder-interceptor.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import {MatTableModule} from '@angular/material/table';
     RegisterComponent,
     NotFoundComponent,
     ProductDetalisComponent,
-    CartComponent
+    CartComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -44,9 +46,15 @@ import {MatTableModule} from '@angular/material/table';
     BrowserAnimationsModule,
     MatCardModule,
     MatTableModule,
-    FontAwesomeModule
+    FontAwesomeModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoderInterceptorInterceptor,
+      multi: true,
+   }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
